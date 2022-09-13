@@ -1,26 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
-import {Button, StatusBar, StyleSheet, Text, View, Linking} from 'react-native';
+import React, {useState} from 'react';
+import {Button, StatusBar, StyleSheet, Text, View} from 'react-native';
 
 const App = () => {
+  const [number, setNumber] = useState(0);
+  const [timeClick, setTimeClick] = useState(0);
+
+  const onClickHandler = () => {
+    setNumber(number + 5);
+    setTimeClick(timeClick + 1);
+  };
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <View style={styles.body}>
-        <Text style={styles.text}>Xin chao cac ban</Text>
-        <Button
-          title="Click me"
-          onPress={() => {
-            Linking.openURL('https://google.com');
-          }}
-        />
+        <Text style={styles.text}>{number}</Text>
+        <Button title="ADD" onPress={onClickHandler} />
+        <Text style={styles.text}>You clicked {timeClick} times</Text>
       </View>
     </>
   );

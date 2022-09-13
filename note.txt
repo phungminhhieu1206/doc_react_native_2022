@@ -1,0 +1,5 @@
+có 2 loại là: state và props để điều khiển giữa các components
+- state thì mutable tức có thể thay đổi giữa các component
+- props thì immutable 
+
++ useState
