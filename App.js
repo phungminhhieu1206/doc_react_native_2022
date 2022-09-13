@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Button, StyleSheet, Text, View, Linking} from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
 const App = () => {
   const [items, setItems] = useState([
@@ -49,6 +49,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 1,
+  },
+  view3: {
+    flex: 1,
+    backgroundColor: 'green',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  view4: {
+    flex: 6,
   },
   text: {
     fontSize: 30,
