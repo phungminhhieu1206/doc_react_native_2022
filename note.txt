@@ -3,3 +3,11 @@ có 2 loại là: state và props để điều khiển giữa các components
 - props thì immutable 
 
 + useState
+
+- ScrollView có hạn chế:
+    + Khi render sẽ render toàn bộ list
+    + Ít props thuộc tính cấu hình
+=> Hay dùng: FlatList với các ghi chú sau:
+    + key là dạng string
+    + mỗi đối tượng là 1 item trong renderItem
+    + dùng keyExtractor theo index của item trong list
