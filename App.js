@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {RefreshControl, ScrollView, StyleSheet, Text, View} from 'react-native';
 
 const App = () => {
   const [items, setItems] = useState([
@@ -24,8 +24,31 @@ const App = () => {
     {key: 19, item: 'Item 19'},
   ]);
 
+  const [lastItem, setLastItem] = useState(items[items.length - 1].key);
+
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+
+    let temp = lastItem + 1;
+    setLastItem(temp);
+    setItems([...items, {key: temp, item: 'Item ' + temp}]);
+
+    setRefreshing(false);
+  };
+
   return (
-    <View style={styles.body}>
+    <ScrollView
+      style={styles.body}
+      horizontal={false}
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+          colors={['#ff00ff']}
+        />
+      }>
       {items.map(i => {
         return (
           <View style={styles.item} key={i.key}>
@@ -33,7 +56,7 @@ const App = () => {
           </View>
         );
       })}
-    </View>
+    </ScrollView>
   );
 };
 
