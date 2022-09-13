@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, StatusBar, StyleSheet, Text, View, Linking} from 'react-native';
+import {Button, StatusBar, StyleSheet, Text, View} from 'react-native';
 
 const App = () => {
   const [number, setNumber] = useState(0);
