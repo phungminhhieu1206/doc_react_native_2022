@@ -15,6 +15,13 @@ const App = () => {
     {key: 10, item: 'Item 10'},
     {key: 11, item: 'Item 11'},
     {key: 12, item: 'Item 12'},
+    {key: 13, item: 'Item 13'},
+    {key: 14, item: 'Item 14'},
+    {key: 15, item: 'Item 15'},
+    {key: 16, item: 'Item 16'},
+    {key: 17, item: 'Item 17'},
+    {key: 18, item: 'Item 18'},
+    {key: 19, item: 'Item 19'},
   ]);
 
   return (
@@ -44,7 +51,7 @@ const styles = StyleSheet.create({
     marginBottom: 1,
   },
   text: {
-    fontSize: 20,
+    fontSize: 30,
     fontStyle: 'italic',
     margin: 10,
   },
