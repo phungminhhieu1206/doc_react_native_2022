@@ -15,7 +15,7 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <View style={styles.body}>
         <Text style={styles.text}>{number}</Text>
-        <Button title="ADD" onPress={onClickHandler} />
+        <Button title="ADD" onPress={onClickHandler} style={styles.button} />
         <Text style={styles.text}>You clicked {timeClick} times</Text>
       </View>
     </>
@@ -24,15 +24,29 @@ const App = () => {
 
 const styles = StyleSheet.create({
   body: {
-    flex: 1,
-    backgroundColor: '#ffffff',
+    width: '100%',
+    height: '50%',
+    backgroundColor: '#ffff00',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 10,
+    borderColor: '#ff00ff',
+    borderRadius: 10,
+    marginBottom: 40,
+    marginTop: 40,
   },
   text: {
     fontSize: 20,
     fontStyle: 'italic',
     margin: 10,
+  },
+  button: {
+    borderWidth: 1,
+    borderColor: '#000000',
+    backgroundColor: 'orange',
+    color: 'orange',
+    width: 150,
+    height: 60,
   },
 });
 
