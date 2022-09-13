@@ -2,24 +2,21 @@ import React, {useState} from 'react';
 import {Button, StatusBar, StyleSheet, Text, View, Linking} from 'react-native';
 
 const App = () => {
-  const [name, setName] = useState('The default name');
-
-  const [session, setSession] = useState({number: 6, title: 'state'});
+  const [number, setNumber] = useState(0);
+  const [timeClick, setTimeClick] = useState(0);
 
   const onClickHandler = () => {
-    setName('This is the new name');
-    setSession({number: 7, title: 'style'});
+    setNumber(number + 5);
+    setTimeClick(timeClick + 1);
   };
 
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <View style={styles.body}>
-        <Text style={styles.text}>{name}</Text>
-        <Text style={styles.text}>
-          This is session number {session.number} and about {session.title}
-        </Text>
-        <Button title="Update name" onPress={onClickHandler} />
+        <Text style={styles.text}>{number}</Text>
+        <Button title="ADD" onPress={onClickHandler} />
+        <Text style={styles.text}>You clicked {timeClick} times</Text>
       </View>
     </>
   );
