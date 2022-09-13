@@ -1,62 +1,24 @@
 import React, {useState} from 'react';
-import {FlatList, RefreshControl, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 
 const App = () => {
-  const [items, setItems] = useState([
-    {name: 'Item 1'},
-    {name: 'Item 2'},
-    {name: 'Item 3'},
-    {name: 'Item 4'},
-    {name: 'Item 5'},
-    {name: 'Item 6'},
-    {name: 'Item 7'},
-    {name: 'Item 8'},
-    {name: 'Item 9'},
-    {name: 'Item 10'},
-    {name: 'Item 11'},
-    {name: 'Item 12'},
-    {name: 'Item 13'},
-    {name: 'Item 14'},
-    {name: 'Item 15'},
-    {name: 'Item 16'},
-    {name: 'Item 17'},
-    {name: 'Item 18'},
-  ]);
-
-  const [lastItem, setLastItem] = useState(items.length);
-
-  const [refreshing, setRefreshing] = useState(false);
-
-  const onRefresh = () => {
-    setRefreshing(true);
-
-    let temp = lastItem + 1;
-    setLastItem(temp);
-    setItems([...items, {name: 'Item ' + temp}]);
-
-    setRefreshing(false);
-  };
+  const [name, setName] = useState('');
 
   return (
-    <FlatList
-      data={items}
-      keyExtractor={(item, index) => index.toString()} // khoa ?
-      numColumns={1} // so luong cot hien thi ?
-      horizontal={false} // xoay ngang ?
-      inverted={false} // dao nguoc ds ?
-      renderItem={({item}) => (
-        <View style={styles.item}>
-          <Text style={styles.text}>{item.name}</Text>
-        </View>
-      )}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-          color={['#ff0fff']}
-        />
-      }
-    />
+    <View style={styles.body}>
+      <Text style={styles.text}>Please write your name: </Text>
+      <TextInput
+        style={styles.inputText}
+        placeholder="e.g. Hieu Phung"
+        onChangeText={value => setName(value)}
+        multiline={false}
+        keyboardType="default"
+        maxLength={10}
+        editable={true} // false: when you don't want to edit in text input
+        secureTextEntry={false} // true: when you use textinput for password
+      />
+      <Text style={styles.text}>Your name is: {name}</Text>
+    </View>
   );
 };
 
@@ -65,27 +27,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffff',
     flexDirection: 'column',
-    marginTop: 35,
-  },
-  item: {
-    backgroundColor: '#4ae1fa',
-    justifyContent: 'center',
+    marginTop: 50,
     alignItems: 'center',
-    marginBottom: 1,
-  },
-  view3: {
-    flex: 1,
-    backgroundColor: 'green',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  view4: {
-    flex: 6,
   },
   text: {
-    fontSize: 30,
-    fontStyle: 'italic',
+    fontSize: 20,
     margin: 10,
+    color: '#000000',
+  },
+  inputText: {
+    borderWidth: 1,
+    width: 300,
+    height: 50,
+    borderRadius: 10,
+    borderColor: '#555555',
+    paddingHorizontal: 10,
+    textAlign: 'center',
+    fontSize: 15,
   },
 });
 
